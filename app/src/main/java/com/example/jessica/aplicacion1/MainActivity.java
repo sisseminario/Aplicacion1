@@ -1,5 +1,8 @@
 package com.example.jessica.aplicacion1;
 
+import android.content.Intent;
+import android.os.Handler;
+import android.support.v4.app.FragmentManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -82,14 +85,28 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_home) {
             // Handle the camera action
+            setTitle("inicio");
+            Inicio  inicio = new Inicio();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, inicio).commit();
         } else if (id == R.id.nav_favorite) {
+            setTitle("favoritos");
+            Favoritos favoritos = new Favoritos();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, favoritos).commit();
 
         } else if (id == R.id.nav_mapa) {
+            setTitle("mapa");
+            Mapa mapa = new Mapa();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, mapa).commit();
 
         } else if (id == R.id.nav_contactos) {
-
+            setTitle("contactos");
+            Contactos contactos = new Contactos();
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.fragment, contactos).commit();
         }
-
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
